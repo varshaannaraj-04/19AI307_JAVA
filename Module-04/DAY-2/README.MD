@@ -1,94 +1,98 @@
-# Ex.No:4(B) INTRODUCTION TO JAVA INHERITANCE
+# Ex.No:4(C)    CONSTRUCTOR CHAINING(SUPER KEYWORD)
 
 ## AIM:
-To write a Java program for below situation, Student object contains member 'Stu_Id'. It contains object named course, which contains its own informations such as Degree, Branch, Year of Studying.
+To Create a class named 'Gadgets' which includes methods display(). [display() will print "I am a Gadget"]
+
+Create a child class of 'Gadgets' named 'Laptop' and add a new overriding method named display() [display() will print "I am a Laptop"]  and print(). [ print() calls both overriding and overridden methods]
+
+Create a instance of Laptop class and invoke the print method using object.
 
 ## ALGORITHM :
 
-1. Start
+Step 1: Start
 
-2. Define class Subject:
+Step 2: Define a class Gadgets
 
-   Declare four String variables: subject1, subject2, subject3, subject4.
+a. Create a method display()
 
-   Create a method dispSub(String subject1, String subject2, String subject3, String subject4):
+b. Inside display(), print "I am a Gadget"
 
-   Print the four subjects separated by spaces.
+Step 3: Define a class Parrot that extends Gadgets
 
-3. Define class Student:
+a. Override the display() method
 
-   Declare an int variable Stu_Id.
+b. Inside the overridden display(), print "I am a Laptop"
 
-   Create an object obj of class Subject.
+c. Create a new method print()
 
-   Create a method disp(int id):
+d. Inside print(), use super.display() to call the parent class (Gadgets) version of display()
 
-   Print the student ID.
+Step 4: Define the Main class with main() method
 
-   Call dispSub method of Subject object obj, passing "B.Tech", "IT", "Third", "year".
+a. Create an object obj of class Parrot
 
-4. Define class Main:
+b. Call obj.display() → Executes Parrot class's display() method
 
-   In the main method:
+c. Call obj.print() → Executes Parrot class's print() method, which in turn calls Gadgets class's display() method using super
 
-   Create an object of Student class.
+Step 5: End
 
-   Call the disp method on the Student object, passing 101 as the student ID.
 
-5. End
 
 ## PROGRAM:
  ```
 /*
-Program to implement a Inheritance using Java
+Program to implement a Constructor Chaining using Java
 Developed by: VARSHA A
 RegisterNumber: 212223220121
 */
 ```
 
 ## Sourcecode.java:
+
 ```
 
-class Subject
+class Gadgets {
+
+  void display()
+  {
+      System.out.println("I am a Gadget");
+  }
+}
+
+class Parrot extends Gadgets {
+
+void display()
 {
-    
-    String subject1,subject2,subject3,subject4;
+    System.out.println("I am a Laptop");
+}
+void print()
+{
+    super.display();
+}
+  
+}
+
+public class Main {
+  public static void main(String[] args) {
       
-    void dispSub(String subject1,String subject2,String subject3,String subject4)
-    {
-        System.out.println(subject1+" "+subject2+" "+subject3+" "+subject4);
-    }
-}
-class Student
-{
-    int Stu_Id;
-    Subject obj = new Subject();
-    
-    
-    void disp(int id)
-    {
-        System.out.println(id);
-        obj.dispSub("B.Tech","IT","Third","year");
-    }
+      Parrot obj=new Parrot();
+      obj.display();
+      obj.print();
+  }
 }
 
-public class Main
-{
-    public static void main(String[] args)
-    {
-        Student obj = new Student();
-        obj.disp(101);
-        
-    }
-}
 ```
+
 
 ## OUTPUT:
-```
-Input      Expected                 Got
----        101                      101
-           B.Tech IT Third year     B.Tech IT Third year
-```
+
+![image](https://github.com/user-attachments/assets/240c300f-e074-4f6e-ba85-ca586e2ca81c)
+
+
 ## RESULT:
 
-Thus the Java program to implement the program for below situation, Student object contains member 'Stu_Id'. It contains object named course, which contains its own informations such as Degree, Branch, Year of Studying was  executed successfully.
+Thus the java program to To Create a class named 'Gadgets' which includes methods display(). [display() will print "I am a Gadget"] Create a child class of 'Gadgets' named 'Laptop' and add a new overriding method named display() [display() will print "I am a Laptop"]  and print(). [ print() calls both overriding and overridden methods] Create a instance of Laptop class and invoke the print method using object. was executed successfully.
+
+
+
